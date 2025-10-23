@@ -31,7 +31,6 @@
             width: 90%;
             max-width: 500px;
             /* Set a fixed height for the wrapper based on the tallest container */
-            /* This prevents the card from jumping when switching between pages */
             min-height: 600px; 
         }
 
@@ -144,11 +143,11 @@
             background: #fff;
         }
 
-        .page2 {
+        .page2, .page3 { /* Added .page3 to the same style as page2 */
             background: linear-gradient(120deg, #ffe6eb, #fff);
         }
 
-        .page3 {
+        .page4 { /* Updated from page3 */
             background: linear-gradient(120deg, #fff5f8, #fff);
         }
 
@@ -164,7 +163,7 @@
             animation: slideUp 0.6s ease-out forwards;
         }
         
-        /* --- CHOCOLATE GAME GRID (PAGE 3) --- */
+        /* --- CHOCOLATE GAME GRID (PAGE 4 - was Page 3) --- */
         .game-content {
             flex-grow: 1; /* Allow content to push buttons down */
             width: 100%;
@@ -238,21 +237,21 @@
             pointer-events: auto;
         }
         
-        /* --- PAGE 4: LETTER STYLES --- */
+        /* --- PAGE 5: LETTER STYLES (was Page 4) --- */
         /* MODIFIED: Added img1.jpg background with a gradient overlay for readability */
-        #page4 {
+        #page5 { 
             background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,238,242,0.7)), url('img1.jpg') no-repeat center center;
             background-size: cover;
             padding-bottom: 80px; /* Add space for the absolute buttons */
         }
 
-        #page4 .letter-header {
+        #page5 .letter-header {
             width: 100%; /* Take up space */
             margin-bottom: 20px;
             animation-delay: 0.1s;
         }
 
-        #page4 .letter-content {
+        #page5 .letter-content {
             text-align: left;
             width: 100%;
             max-width: 350px;
@@ -262,7 +261,7 @@
             animation-delay: 0.3s;
         }
 
-        #page4 .dear-shital {
+        #page5 .dear-shital {
             text-align: center;
             opacity: 0;
             transform: scale(0.8);
@@ -272,7 +271,7 @@
             to { opacity: 1; transform: scale(1); }
         }
 
-        #page4 .shin-chan-image {
+        #page5 .shin-chan-image {
             position: absolute;
             top: 5px;
             right: 5px;
@@ -313,8 +312,8 @@
             }
         }
 
-        /* FIX: Re-positioning buttons on Page 4 to be truly at the bottom */
-        #page4 > .buttons {
+        /* FIX: Re-positioning buttons on Page 5 to be truly at the bottom */
+        #page5 > .buttons {
             position: absolute;
             bottom: 30px;
             left: 0;
@@ -329,7 +328,7 @@
                 min-height: 550px;
             }
             .container {
-                padding: 20px;
+                padding: 15px;
                 border-radius: 18px;
             }
             h1 { font-size: 1.6rem; }
@@ -337,7 +336,7 @@
             p { font-size: 0.9rem; }
             .cell { width: 75px; height: 75px; font-size: 1.5rem; }
             
-            #page4 .shin-chan-image {
+            #page5 .shin-chan-image {
                 top: -50px;
                 right: 10px;
                 width: 80px;
@@ -351,49 +350,63 @@
             /* ADDED: Mobile adjustments for stamp text and heart */
             .happy-bhaidooj-stamp .heart-icon { font-size: 1.5rem; }
             .happy-bhaidooj-stamp .stamp-text { font-size: 0.65rem; }
-            #page4 .dear-anuradha { font-size: 1.1rem; }
+            #page5 .dear-shital { font-size: 1.1rem; }
         }
     </style>
 </head>
 <body>
+    <audio id="backgroundMusic" loop preload="auto">
+        <source src="song.mp3" type="audio/mp3"> 
+        Your browser does not support the audio element.
+    </audio>
+
     <div class="card-wrapper">
         <div class="container fade" id="page1">
             <div class="game-content">
                 <h2 class="slideUp" style="animation-delay: 0.1s;">FOR MY LOVELY <br><b style="color: #f27d9d; font-size: 25px;">&nbsp; &nbsp;SISTER ✨</b></h2>
                 <h1 class="slideUp" style="animation-delay: 0.3s;"></h1>
                 <p class="slideUp" style="animation-delay: 0.7s;">
-                    You’ve always been my biggest supporter, my secret keeper, and my forever
-                    partner-in-crime 💫. On this Bhai Dooj, I just want you to know how lucky
-                    i am to have you as my sister.
-                </p>
-                <video class="slideUp" style="animation-delay: 0.1s; width: 270px;" id="bhaidooj-video" autoplay loop muted>
-    <source src="vid.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
+                    I have created something special just for you to show how much you mean to me. <br>I hope you love it as much as I loved creating it for you. ❤️
+                </p><br>
+                <img class="slideUp" style="animation-delay: 0.1s; width: 270px;" src="intro.gif" alt="Bhai Dooj animated image">
             </div>
             <div class="buttons slideUp" style="animation-delay: 1.1s;">
-                <button onclick="nextPage(2)">Next →</button>
+                <button onclick="nextPage(2); startMusic()">Next →</button>
             </div>
         </div>
 
-        <div class="container hidden" id="page2">
+        <div class="container hidden page2" id="page2">
             <div class="game-content">
-                <h1 class="slideUp" style="animation-delay: 0.1s;">🌸 A Special Bond 🌸</h1>
+                <h1 class="slideUp" style="animation-delay: 0.1s;">Our Precious Memories 📸</h1>
                 <p class="slideUp" style="animation-delay: 0.3s;">
-                   No matter how old we get and where life takes us, we will always be together because brother and sister are forever. I’m so lucky to have you by my side.
-                </p>
-               <video class="slideUp" style="animation-delay: 0.5s; width: 270px;" id="page2-video" autoplay loop muted playsinline>
-    <source src="vid2.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
+                    You’ve always been my biggest supporter, my secret keeper, and my forever partner-in-crime. 💫
+                </p><br><br>
+                <video class="slideUp" style="animation-delay: 0.5s; width: 270px;" id="page2-video" autoplay loop muted playsinline>
+                    <source src="vid.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
             <div class="buttons slideUp" style="animation-delay: 0.7s;">
                 <button class="back" onclick="prevPage(1)">← Back</button>
-                <button class="next" onclick="nextPage(3)">Next →</button>
+                <button class="next" onclick="nextPage(3)">Next →</button> </div>
+        </div>
+        
+        <div class="container hidden page3" id="page3">
+            <div class="game-content">
+                <h1 class="slideUp" style="animation-delay: 0.1s;">🌸 A Special Bond 🌸</h1>
+                <p class="slideUp" style="animation-delay: 0.3s;">
+                    No matter how old we get and where life takes us, we will always be together because brother and sister are forever. I’m so lucky to have you by my side.
+                </p><br><br>
+                <video class="slideUp" style="animation-delay: 0.5s; width: 270px;" id="page3-video" autoplay loop muted playsinline>
+                    <source src="vid2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
+            <div class="buttons slideUp" style="animation-delay: 0.7s;">
+                <button class="back" onclick="prevPage(2)">← Back</button> <button class="next" onclick="nextPage(4)">Next →</button> </div>
         </div>
 
-        <div class="container hidden page3" id="page3">
+        <div class="container hidden page4" id="page4">
             <div class="game-content">
                 <h1 class="slideUp" style="animation-delay: 0.1s;">Fill in the blanks to get a chocolate 🍫</h1>
 
@@ -411,22 +424,20 @@
             </div>
 
             <div class="game-overlay-message" id="gameOverlayMessage">
-                You successfully unlocked a chocolate treat, yay! 🍫
+                You have successfully unlocked a chocolate treat! 🍫
             </div>
 
             <div class="buttons slideUp" style="animation-delay: 0.5s;">
-                <button class="back" onclick="prevPage(2)">← Back</button>
-                <button class="next" id="gameNextButton" onclick="nextPage(4)" disabled>Next →</button>
-            </div>
+                <button class="back" onclick="prevPage(3)">← Back</button> <button class="next" id="gameNextButton" onclick="nextPage(5)" disabled>Next →</button> </div>
         </div>
 
-        <div class="container hidden" id="page4">
+        <div class="container hidden" id="page5">
             <div class="letter-header slideUp" style="animation-delay: 0.1s;">
                 <h2>A LETTER</h2>
                 <h1>FROM YOUR BHAI ✨</h1>
             </div>
             <div class="letter-content slideUp" style="animation-delay: 0.3s;">
-                <p class="dear-shital">Dear Shital ❤️</p>
+                <p class="dear-shital">Dear Behen ❤️</p>
                 <p>
                     I just wanted to remind you behen, how much you truly mean to me. You’ve always been there, not just as a sister, but as my guide, my support, and my safe place. Every time I faced a challenge, no matter how big or small, you were there-encouraging me, lifting me up, and reminding me of my strength. I love you so much meri behen!💖
                 </p>
@@ -440,20 +451,36 @@
             </div>
 
             <div class="buttons">
-                <button class="back" onclick="prevPage(3)">← Back</button>
-            </div>
+                <button class="back" onclick="prevPage(4)">← Back</button> </div>
         </div>
     </div>
 
     <script>
+        const backgroundMusic = document.getElementById("backgroundMusic");
         const gameNextButton = document.getElementById("gameNextButton");
         const gameOverlayMessage = document.getElementById("gameOverlayMessage");
         const gameGrid = document.getElementById("grid");
         const blankCell = document.querySelector(".blank-cell"); 
+        
+        let musicStarted = false; // Track if the music has been initialized
+
+        /**
+         * Starts the background music. This function is called only once
+         * when the user clicks 'Next' on Page 1, satisfying browser autoplay policies.
+         */
+        function startMusic() {
+            if (!musicStarted) {
+                backgroundMusic.volume = 0.5; // Set volume lower so it doesn't overpower the page
+                backgroundMusic.play().catch(error => {
+                    console.log("Autoplay prevented:", error);
+                });
+                musicStarted = true;
+            }
+        }
 
         /**
          * Hides all pages and shows the target page, running the fade animation.
-         * @param {number} n The page number to show (e.g., 1, 2, 3, 4).
+         * @param {number} n The page number to show (e.g., 1, 2, 3, 4, 5).
          */
         function nextPage(n) {
             document.querySelectorAll(".container").forEach(div => {
@@ -470,14 +497,15 @@
             // Re-apply slideUp animations to visible content
             next.querySelectorAll('.slideUp').forEach(el => el.style.animationName = 'slideUp');
             
-            if (n === 3) {
-                resetGame(); // Reset game state when entering page 3
+            // Check if the game page is the next page (Page 4)
+            if (n === 4) { 
+                resetGame(); // Reset game state when entering page 4
             }
         }
 
         /**
          * Hides all pages and shows the target page, running the fade animation (for going back).
-         * @param {number} n The page number to show (e.g., 1, 2, 3, 4).
+         * @param {number} n The page number to show (e.g., 1, 2, 3, 4, 5).
          */
         function prevPage(n) {
             document.querySelectorAll(".container").forEach(div => {
@@ -496,15 +524,18 @@
          * Resets the game state: clears the blank cell, hides the message, blurs the grid, disables button.
          */
         function resetGame() {
-            blankCell.textContent = "";
-            blankCell.classList.add("blank-cell");
-            blankCell.style.pointerEvents = 'auto';
+            // Find the blank cell specifically on page 4
+            const page4BlankCell = document.querySelector("#page4 .blank-cell");
+            
+            page4BlankCell.textContent = "";
+            page4BlankCell.classList.add("blank-cell");
+            page4BlankCell.style.pointerEvents = 'auto';
             gameNextButton.disabled = true;
             gameNextButton.style.backgroundColor = '';
             gameNextButton.style.color = '';
             gameOverlayMessage.classList.remove("show");
             gameGrid.classList.remove("blurred");
-            blankCell.setAttribute("aria-label", "Click or press enter/space to fill this blank space");
+            page4BlankCell.setAttribute("aria-label", "Click or press enter/space to fill this blank space");
         }
 
         /**
@@ -538,7 +569,7 @@
 
         // Initial setup: Hide all except page 1, and ensure page 1 content animation runs
         document.addEventListener('DOMContentLoaded', () => {
-            // Start by hiding all pages except the first one explicitly, as absolute positioning now controls visibility
+            // Start by hiding all pages except the first one explicitly
             document.querySelectorAll(".container").forEach(div => div.classList.add("hidden"));
             document.getElementById('page1').classList.remove('hidden');
             // Re-apply slideUp animations to the first page's content
